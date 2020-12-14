@@ -26,6 +26,16 @@ namespace addressbook_tests_autoit
             return list;
         }
 
+        public bool IsGroupExist(int removalIndex)
+        {
+            OpenGroupsDialogue();
+            string isGroupExists = aux.ControlTreeView(GROUPWINTITLE, "", "WindowsForms10.SysTreeView32.app.0.2c908d51", "Exists", "#0|#" + removalIndex, "");
+
+            if (isGroupExists == "1")
+                return true;
+            return false;
+        }
+
         public void Add(GroupData newGroup)
         {
             OpenGroupsDialogue();
